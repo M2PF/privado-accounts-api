@@ -24,7 +24,7 @@ jobs:
         fetch-depth: 0
     - name: "Login to docker registry"
       run: |
-        psw = $(curl --fail -s -H "Content-Type: application/json" -H "Authorization: Token $PRIVADO_API_TOKEN" -H "idt: $PRIVADO_API_TOKEN" -H "data-url: /ce/integrations/customers/$PRIVADO_API_ID/docker-registry-token" $PRIVADO_API_HOST/ce/integrations/customers/$PRIVADO_API_ID/docker-registry-token?ci=true)
+        psw=$(curl --fail -s -H "Content-Type: application/json" -H "Authorization: Token $PRIVADO_API_TOKEN" -H "idt: $PRIVADO_API_TOKEN" -H "data-url: /ce/integrations/customers/$PRIVADO_API_ID/docker-registry-token" $PRIVADO_API_HOST/ce/integrations/customers/$PRIVADO_API_ID/docker-registry-token?ci=true)
         docker login --username AWS --password $psw $PRIVADO_DOCKER_IMAGE
     - name: Run Privado Scanner
       run: |
